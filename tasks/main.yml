@@ -1,0 +1,3 @@
+- include: netplan.yml
+  tags: netplan
+  when: netplan_dhcp_interfaces is defined
