@@ -1,5 +1,5 @@
 - name: Copy Netplan DHCP config
   template:
     src: netplan-dhcp.j2
-    dest: /etc/netplan/20-dhcp.yml
+    dest: /etc/netplan/20-dhcp.yaml
   notify: apply netplan
