@@ -1,8 +1,0 @@
-network:
-    version: 2
-    ethernets:
-{% for iface in netplan_dhcp_interfaces %}
-        {{ iface }}:
-            dhcp4: true
-            mtu: {{ netplan_dhcp_mtu }}
-{% endfor %}

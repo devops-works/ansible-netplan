@@ -1,0 +1,24 @@
+####################################
+#                                  #
+#       ansible-hosts role         #
+#                                  #
+####################################
+#
+# {{ ansible_managed }} 
+#
+
+network:
+  version: 2
+  ethernets:
+{% for iface in netplan_interfaces %}
+    {{ iface.name }}:
+{%   if "dhcp" in iface and iface.dhcp4 %}
+      dhcp4: true
+{%   else %}
+      addresses:
+{%     for addr in iface.addresses %}
+        - {{ addr }}
+{%     endfor %}
+{%   endif %}
+      mtu: {{ netplan_dhcp_mtu }}
+{% endfor %}
