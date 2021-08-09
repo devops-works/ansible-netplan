@@ -1,4 +1,4 @@
-- name: Copy Netplan DHCP config
+- name: Create Netplan config
   template:
     src: netplan.j2
     dest: /etc/netplan/20-ansible.yaml
